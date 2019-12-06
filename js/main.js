@@ -6,3 +6,7 @@ $(function(){
         $(this).load(file);
     });
 });
+
+$('.menu-btn').on('click', function() {
+    $('.menu-wrapper').slideToggle('slow');
+});
