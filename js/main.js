@@ -39,11 +39,26 @@ let theme = {
       theme.update();
   });
   
-  $('.content-wrapper').on('click',function () {
+  let editPopup = document.querySelector('.edit-popup');
+  let editPopupSwitcher = false;
+
+  $('#edit').on('click',function () {
+      this.classList.remove('pulse');
+      editPopupSwitcher = !editPopupSwitcher;
+
       if (editPopupSwitcher){
-          TweenMax.to(editPopup,1,{x:'-200%',display:'block',width:'60%',height:'0vh',ease:Power3.easeOut});
+          TweenMax.to(editPopup,1,{x:'2%',display:'block',width:'60%',height:'65vh',ease:Back.easeOut});
+      } else {
+        TweenMax.to(editPopup,1,{x:'-200%',display:'block',width:'60%',height:'0vh',ease:Power3.easeOut});
       }
   });
+
+  $('.content-wrapper').on('click',function () {
+    if (editPopupSwitcher){
+        TweenMax.to(editPopup,1,{x:'-200%',display:'block',width:'60%',height:'0vh',ease:Power3.easeOut});
+        editPopupSwitcher = !editPopupSwitcher;
+    }
+});
   
   //работа с превью
   let preview = $('.preview-wrapper');
@@ -89,4 +104,3 @@ let theme = {
      theme.secondaryColor = themePreview.secondaryColor;
      theme.update();
   });
-  
