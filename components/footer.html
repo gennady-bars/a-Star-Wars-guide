@@ -11,7 +11,31 @@
     </div>
 
     <script>
-        console.log('its footer')
-    </script>
+        let tooltip = document.getElementsByClassName('tooltip_wrapper')[0];
+        let tooltipTarget = document.getElementById('text');
 
+        let isTooltipActive = false;
+
+        tooltipTarget.addEventListener('mouseover',()=>{
+            tooltip.style.display = 'block';
+        });
+
+        tooltipTarget.addEventListener('mouseleave',()=>{
+            setTimeout(function () {
+                if (!isTooltipActive){
+                    tooltip.style.display = 'none';
+                }
+            },1000)
+        });
+
+        tooltip.addEventListener('mouseover',()=>{
+           isTooltipActive = true;
+        });
+
+        tooltip.addEventListener('mouseleave',()=>{
+            tooltip.style.display = 'none';
+            isTooltipActive = false;
+        });
+        
+    </script>
 </footer>

@@ -98,9 +98,12 @@ let theme = {
       prewiewChild().forEach(el => el.style.backgroundColor = this.style.color);
       themePreview.secondaryColor = this.style.color;
   });
-  
+
   $('#save-theme-btn').on('click',function () {
-     theme.themeType = themePreview.themeType;
-     theme.secondaryColor = themePreview.secondaryColor;
-     theme.update();
-  });
+    // theme.themeType = themePreview.themeType;
+    // theme.secondaryColor = themePreview.secondaryColor;
+     localStorage.secondaryColor = themePreview.secondaryColor;
+     localStorage.themeType = themePreview.themeType;
+     theme.coolUpdate();
+ });
+ 
