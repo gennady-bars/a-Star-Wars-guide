@@ -20,7 +20,7 @@ class NavBarHeader {
         return this.greetMsg;
     }
     get HeaderHTML(){
-        return `<p>${this.startStr}, <span id="userName" style="font-weight: bold">${this.fio}</span>
+        return `<p>${this.startStr}, <span id="userName" style="font-weight: bold">${this.fio}</span>!
         ${this.greeting===undefined||this.greeting===''?'Как сегодня настрой?':this.greeting}</p>`
     }
     updateName(){
@@ -35,7 +35,7 @@ class NavBarHeader {
 window.onload = function () {
     let Uname;
 
-    let navheader = new NavBarHeader('Здравствуй');
+    let navheader = new NavBarHeader('Да пребудет с тобой Сила');
     let name = localStorage.getItem('UserName');
 
     if (name===null){
