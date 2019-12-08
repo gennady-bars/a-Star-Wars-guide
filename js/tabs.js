@@ -15,18 +15,18 @@ let tabs = [
         contentLinkText:'@github/Gena',
         contentText:'Здесь вы можете посмотреть мои проекты'
     },
-    {
-        name:'email',
-        contentLink:'gena-front@yandex.ru',
-        contentLinkText:'@ya.ru',
-        contentText:'Ваши предложения'
-    },
-    {
-        name:'skype',
-        contentLink:'skype',
-        contentLinkText:'sans-frontieres',
-        contentText:'Связь со мной'
-    },
+    // {
+    //     name:'email',
+    //     contentLink:'gena-front@yandex.ru',
+    //     contentLinkText:'@ya.ru',
+    //     contentText:'Ваши предложения'
+    // },
+    // {
+    //     name:'skype',
+    //     contentLink:'skype',
+    //     contentLinkText:'sans-frontieres',
+    //     contentText:'Связь со мной'
+    // },
 ];
 
 $('.tabs_container')[0].innerHTML = TabList(tabs);
