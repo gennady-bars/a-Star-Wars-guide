@@ -49,7 +49,7 @@ window.onload = function () {
     Uname = document.getElementById('userName');
 
     Uname.addEventListener('click',function () {
-        let newName = prompt('Как к вам обращаться?',localStorage.getItem('UserName'));
+        let newName = prompt('Хотите перейти на тёмную сторону? Или просто сменить имя?',localStorage.getItem('UserName'));
         navheader.fio = newName;
     })
 };
