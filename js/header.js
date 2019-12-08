@@ -20,8 +20,8 @@ class NavBarHeader {
         return this.greetMsg;
     }
     get HeaderHTML(){
-        return `<p>${this.startStr}, <span id="userName" style="font-weight: bold">${this.fio}</span>,
-        ${this.greeting===undefined||this.greeting===''?'как сегодня настрой?':this.greeting}</p>`
+        return `<p>${this.startStr}, <span id="userName" style="font-weight: bold">${this.fio}</span>
+        ${this.greeting===undefined||this.greeting===''?'Как сегодня настрой?':this.greeting}</p>`
     }
     updateName(){
         let nameBlocks = $('#userName');
