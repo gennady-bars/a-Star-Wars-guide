@@ -127,7 +127,7 @@ ul{
 }
 .indigo-theme{
     background-color: #4d426d;
-    background-image: url('../pics/sword2.png');
+    background-image: url('../pics/sword3.png');
 }
 .black-theme{
     background-color: #20222a;
@@ -206,9 +206,10 @@ ul{
 .skill-container{
     display: flex;
     flex-direction: row;
-    width: 40%;
+    width: 60%;
     align-items: center;
     margin-bottom: 20px;
+    font-size: 30px;
 }
 /*стили для футера*/
 .footer-wrapper{
