@@ -39,7 +39,7 @@ window.onload = function () {
     let name = localStorage.getItem('UserName');
 
     if (name===null){
-        let newName = prompt('Как к вам обращаться?','Dude');
+        let newName = prompt('Как к вам обращаться?','Падаван');
         localStorage.setItem('UserName',newName);
     }
 
