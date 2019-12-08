@@ -51,9 +51,13 @@ let nextPeoplesPage = '';
 let prevPeoplesPage = '';
 
 function Personage(pers) {
+   let pic = pers.name === 'Luke Skywalker'? `<img src="../pics/Luke.gif">`:
+    pers.name === 'C-3PO'? `<img src="../pics/C-3PO.gif">`:
+    pers.name === 'R2-D2'? `<img src="../pics/R2-D2.gif">`: '';
    return `<div class="personage-item_container" id="pers_${pers.i}" style="flex: 1;transform: translateY(70%)">
         <h5 style="margin: 0 auto">${pers.name}</h5>
         <p>Родился ${pers.birth_year}</p>
+        ${pic}
     </div>`;
 }
 
