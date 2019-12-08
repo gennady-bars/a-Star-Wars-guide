@@ -127,9 +127,11 @@ ul{
 }
 .indigo-theme{
     background-color: #4d426d;
+    background-image: url('../pics/sword2.png');
 }
 .black-theme{
     background-color: #20222a;
+    background-image: url('../pics/space.png');
 }
 .selected-theme{
     border: 2px solid #00b0ff;
