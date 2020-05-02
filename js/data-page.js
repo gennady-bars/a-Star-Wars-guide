@@ -81,7 +81,10 @@ function drawPersonages(startIndex=0,endIndex=3){
 }
 
 window.onload = async function () {
-   let res = await fetch('https://swapi.co/api/people/').then(res => res.json());
+   let res = await fetch('https://swapi.co/api/people/')
+   .then(res => res.json())
+   .catch(e => console.log(e)
+   );
 
    people = res.results.map( (el,i) => {
       el.i = i;
