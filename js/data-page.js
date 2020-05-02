@@ -46,10 +46,10 @@ window.addEventListener('storage',function (event) {
    theme.coolUpdate();
 });
 
-let peoples = [];
-let cupPeoples = [];
-let nextPeoplesPage = '';
-let prevPeoplesPage = '';
+let people = [];
+let cupPeople = [];
+let nextPeoplePage = '';
+let prevPeoplePage = '';
 
 function Personage(pers) {
    let pic = pers.name === 'Luke Skywalker'? `<img src="../pics/Luke.gif">`:
@@ -63,13 +63,15 @@ function Personage(pers) {
 }
 
 function drawPersonages(startIndex=0,endIndex=3){
-   cupPeoples = peoples.slice(startIndex,endIndex);
+   cupPeople = people.slice(startIndex,endIndex);
 
-   let HTMLPeoples = cupPeoples.map(el=>Personage(el));
+   let HTMLPeople = cupPeople.map(el=>Personage(el));
 
-   $('.personages_container')[0].innerHTML = HTMLPeoples.join('');
+   $('.personages_container')[0].innerHTML = HTMLPeople.join('');
 
    $('.personage-item_container').on('click',function () {
+      console.log('item_container cliked');
+      
       if (this.style.transform === "translate(0%, 10%) matrix(1, 0, 0, 1, 0, 0)") {
          TweenMax.to(this,0.6,{y:'70%',ease:Power4.easeOut})
       } else {
@@ -81,24 +83,24 @@ function drawPersonages(startIndex=0,endIndex=3){
 window.onload = async function () {
    let res = await fetch('https://swapi.co/api/people/').then(res => res.json());
 
-   peoples = res.results.map( (el,i) => {
+   people = res.results.map( (el,i) => {
       el.i = i;
       return el;
    });
 
-   nextPeoplesPage = res.next;
-   prevPeoplesPage = res.previous;
+   nextPeoplePage = res.next;
+   prevPeoplePage = res.previous;
 
    drawPersonages();
 };
 
-let load = async function loadNewPeoplesPage(url){
+let load = async function loadNewPeoplePage(url){
    let {next,previous,results} = await fetch(url).then(res => res.json());
 
-   nextPeoplesPage = next;
-   prevPeoplesPage = previous;
+   nextPeoplePage = next;
+   prevPeoplePage = previous;
 
-   peoples = results.map( (el,i) => {
+   people = results.map( (el,i) => {
       el.i = i;
       return el;
    });
@@ -107,25 +109,25 @@ let load = async function loadNewPeoplesPage(url){
 };
 
 document.getElementById('next').addEventListener('click',() => {
-   let lastInCurrentCup = cupPeoples[cupPeoples.length-1].i;
+   let lastInCurrentCup = cupPeople[cupPeople.length-1].i;
 
-   if (lastInCurrentCup !== peoples.length-1){
+   if (lastInCurrentCup !== people.length-1){
       drawPersonages(lastInCurrentCup+1,lastInCurrentCup+4);
    }else {
-      if (nextPeoplesPage!==null){
-         load(nextPeoplesPage);
+      if (nextPeoplePage!==null){
+         load(nextPeoplePage);
       }
    }
 });
 
 document.getElementById('prev').addEventListener('click',() => {
-   let firstInCurrentCup = cupPeoples[0].i;
+   let firstInCurrentCup = cupPeople[0].i;
 
    if (firstInCurrentCup !== 0){
       drawPersonages(firstInCurrentCup-3,firstInCurrentCup);
    }else {
-      if (prevPeoplesPage!==null){
-         load(prevPeoplesPage);
+      if (prevPeoplePage!==null){
+         load(prevPeoplePage);
       }
    }
 });
