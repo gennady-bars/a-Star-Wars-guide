@@ -1,2 +1,3 @@
 # gennady-bars.github.io
-a Star Wars project using SWAPI
+a Star Wars project using JQuery and SWAPI
+ 
