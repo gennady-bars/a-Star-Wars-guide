@@ -1,8 +1,9 @@
 $(function(){
-   var includes = $('[data-include]');
+   let includes = $('[data-include]');
    //document.querySelector("[data-include]").innerText;
    jQuery.each(includes, function(){
-      var file = '../components/' + $(this).data('include') + '.html';
+      let file = '../components/' + $(this).data('include') + '.html';
+      
       $(this).load(file);
    });
 });
